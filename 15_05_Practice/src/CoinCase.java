@@ -1,12 +1,9 @@
 import java.util.HashMap;
 
 public class CoinCase {
-    public int tmp_num;
-
     HashMap<String,Integer> coin=new HashMap<>();
 
     public CoinCase(){
-        this.tmp_num=0;
         coin.put("jpy_500",0);
         coin.put("jpy_100",0);
         coin.put("jpy_50",0);
@@ -16,41 +13,54 @@ public class CoinCase {
     }
 
     public void AddCoins(int jpy,int num){
+        int tmp_num=0;
+
         if(jpy==500){
             tmp_num=coin.get("jpy_500");
             coin.put("jpy_500",num+tmp_num);
-            System.out.println("500円は"+coin.get("jpy_500")+"枚");
         }else if (jpy==100){
             tmp_num=coin.get("jpy_100");
             coin.put("jpy_100",num+tmp_num);
-            System.out.println("100円は"+coin.get("jpy_100")+"枚");
         }else if(jpy==50){
             tmp_num=coin.get("jpy_50");
             coin.put("jpy_50",num+tmp_num);
-            System.out.println("50円は"+coin.get("jpy_50")+"枚");
         }else if(jpy==10){
             tmp_num=coin.get("jpy_10");
             coin.put("jpy_10",num+tmp_num);
-            System.out.println("10円は"+coin.get("jpy_10")+"枚");
         }else if(jpy==5){
             tmp_num=coin.get("jpy_5");
             coin.put("jpy_5",num+tmp_num);
-            System.out.println("5円は"+coin.get("jpy_5")+"枚");
         }else if(jpy==1){
             tmp_num=coin.get("jpy_1");
             coin.put("jpy_1",num+tmp_num);
-            System.out.println("1円は"+coin.get("jpy_1")+"枚");
         }else{
             System.out.println("ERROR in AddCoins");
         }
-
     }
 
-    public void GetCount(){
+    public int GetCount(int jpy){
+        int num=0;
 
+        if(jpy==500){
+            num=coin.get("jpy_500");
+        }else if (jpy==100){
+            num=coin.get("jpy_100");
+        }else if(jpy==50){
+            num=coin.get("jpy_50");
+        }else if(jpy==10){
+            num=coin.get("jpy_10");
+        }else if(jpy==5){
+            num=coin.get("jpy_5");
+        }else if(jpy==1){
+            num=coin.get("jpy_1");
+        }else{
+            System.out.println("ERROR in GetCount");
+        }
+        return num;
     }
 
-    public void GetAmount(){
-
+    public int GetAmount(){
+        int amount=500*coin.get("jpy_500")+100*coin.get("jpy_100")+50*coin.get("jpy_50")+10*coin.get("jpy_10")+5*coin.get("jpy_5")+coin.get("jpy_1");
+        return amount;
     }
 }

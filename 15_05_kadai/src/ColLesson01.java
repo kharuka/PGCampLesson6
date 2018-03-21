@@ -29,7 +29,6 @@ public class ColLesson01 {
         } while (COUNT <= 9);
         sc.close();
 
-
         for (int i = 0; i < COUNT; i++) {
             System.out.println("単語；" + words[i].getWord() + " 意味；" + words[i].getMeaning());
         }
